@@ -16,7 +16,7 @@ Support
 -------
 The vutinfth document class is developed using a GitLab-supported Git
 repository. You can find it at
-                https://gitlab.cg.tuwien.ac.at/auzinger/vutinfth
+                 https://gitlab.com/ThomasAUZINGER/vutinfth
 where a history of the development process is given. If you encounter problems
 with using vutinfth, use the Issues section of GitLab to provide a description
 and to alert the developers of your issue. Furthermore, you can use the Issues
