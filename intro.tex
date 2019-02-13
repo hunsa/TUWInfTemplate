@@ -1,5 +1,5 @@
 %% intro.tex
-%% Copyright (C) 2014-2017 by Thomas Auzinger <thomas@auzinger.name>
+%% Copyright (C) 2014-2019 by Thomas Auzinger <thomas@auzinger.name>
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -37,7 +37,7 @@ Reading through the guide at \url{https://en.wikibooks.org/wiki/LaTeX} serves as
 
 \section{Installation}
 
-A full \LaTeX\ distribution\index{distribution} consists of not only of the binaries that convert the source files to the typeset documents, but also of a wide range of packages and their documentation.
+A full \LaTeX\ distribution\index{distribution} consists not only of the binaries that convert the source files to the typeset documents, but also of a wide range of packages and their documentation.
 Depending on the operating system, different implementations are available as shown in Table~\ref{tab:distrib}.
 \textbf{Due to the large amount of packages that are in everyday use and due to their high interdependence, it is paramount to keep the installed distribution\index{distribution} up to date.}
 Otherwise, obscure errors and tedious debugging ensue.
@@ -50,7 +50,7 @@ Otherwise, obscure errors and tedious debugging ensue.
     \midrule
     TeX Live     & \textbf{yes} & yes          & (yes)        \\
     MacTeX       & no           & no           & \textbf{yes} \\
-    MikTeX       & no           & \textbf{yes} & no           \\
+    MikTeX       & (yes)        & \textbf{yes} & yes          \\
     \bottomrule
   \end{tabular}
   \caption{\TeX/\LaTeX\ distributions for different operating systems. Recomended choice in \textbf{bold}.}
@@ -62,7 +62,7 @@ Otherwise, obscure errors and tedious debugging ensue.
 A multitude of \TeX\ \glspl{texteditor} are available differing in their editing models, their supported operating systems and their feature sets.
 A comprehensive overview of \glspl{texteditor} can be found at the Wikipedia page  \url{https://en.wikipedia.org/wiki/Comparison_of_TeX_editors}.
 TeXstudio (\url{http://texstudio.sourceforge.net/}) is recommended.
-Most editors support the scrolling the typeset preview document to a location in the source document by \verb|Ctrl| clicking the location in the source document.
+Most editors support a synchronization of the generated document and the \LaTeX\ source by \verb|Ctrl| clicking either on the source document or the generated document.
 
 \section{Compilation}
 
