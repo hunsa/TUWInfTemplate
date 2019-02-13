@@ -76,6 +76,7 @@
 % \changes{v1.4}{2015/08/01}{Added comma to separate posttitle and changed mainmatter pagestyle to `Ruled'.}
 % \changes{v1.5}{2016/01/17}{Updated name of university to `TU Wien'.}
 % \changes{v1.6}{2016/11/12}{Enabled second advisor for dissertations.}
+% \changes{v1.8}{2019/02/13}{Removed address information.}
 %
 % \GetFileInfo{vutinfth.dtx}
 %
@@ -141,7 +142,7 @@
 % \subsubsection{Textual Data}
 % \label{sec:user:data:text}
 %
-% \DescribeMacro{\setaddress}
+% ^^A\DescribeMacro{\setaddress}
 % \DescribeMacro{\setregnumber}
 % \DescribeMacro{\settitle}
 % \DescribeMacro{\setsubtitle}
@@ -154,7 +155,7 @@
 %   \toprule
 %   Command & Role & Type & Optional\\
 %   \midrule
-%   |\setaddress| & Address of the author & All & No \\
+%   ^^A|\setaddress| & Address of the author & All & No \\
 %   |\setregnumber| & Registration number of the author & All & No \\
 %   |\settitle|\ispoly & Title of the thesis & All & No \\
 %   |\setsubtitle|\ispoly & Subtitle of the thesis & All & Yes \\
@@ -1130,9 +1131,10 @@
 %
 % \begin{macro}{Textual Data}
 % \changes{v1.3}{2014/11/25}{Updated to support external reviewer data. \issue{4}}
+% \changes{v1.8}{2019/02/13}{Removed address information.}
 % Creates the required textual data entries.
 %    \begin{macrocode}
-\CreateData{address}%
+% ^^A\CreateData{address}%
 \CreateData{regnumber}%
 \CreateData{firstreviewerdata}%
 \CreateData{secondreviewerdata}%
@@ -1733,6 +1735,7 @@
 %
 % \begin{macro}{\AddStatementPage}
 % \changes{v1.3}{2014/11/25}{Updated to support multiple languages. \issue{4}}
+% \changes{v1.8}{2019/02/13}{Removed address information.}
 %   Generates the statement page.
 %    \begin{macrocode}
 \newcommand{\AddStatementPage}{
@@ -1754,8 +1757,8 @@
   \begin{SFFont}{phv}%
     \sffamily
       \chapter*{\vutinfth@polylingual@StatementChapter}%
-      \vutinfth@person@author@fullname\\
-      \vutinfth@data@address\par
+      \vutinfth@person@author@fullname\par
+% ^^A      \vutinfth@data@address\par
       \vspace{1.2cm}%
       {\normalfont\vutinfth@polylingual@Statement}\par
       \vspace{1.2cm}%
