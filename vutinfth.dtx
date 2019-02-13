@@ -386,7 +386,7 @@
 % Used as |\CreateData|\marg{name}, it generates a command |\set|\meta{name}.
 % Used as |\set|\meta{name}\marg{string}, the newly created command assigns the value \meta{string} to the internal variable |\vutinfth@data@|\meta{name}.
 % The variable is initialized with an error value to alert the user of the fact that \meta{string} was not supplied via the |\set|\meta{name} command.
-% Furthermore, a command |\vutinfth@data@|\meta{name}|@def| is created, to increase source code readability when verifying the existance of a specific data item.
+% Furthermore, a command |\vutinfth@data@|\meta{name}|@def| is created, to increase source code readability when verifying the existence of a specific data item.
 % See Section~\ref{sec:impl:data:declarations} for examples.
 %
 % \DescribeMacro{\CreatePerson}
@@ -405,7 +405,7 @@
 %   \bottomrule
 % \end{tabular}
 % \end{center}
-% The command |\vutinfth@person@|\meta{name}|@def| is created to increase source code readability when verifying the existance of a specific person.
+% The command |\vutinfth@person@|\meta{name}|@def| is created to increase source code readability when verifying the existence of a specific person.
 % Furthermore, the command |\vutinfth@person@|\meta{name}|@fullname| returns the person's name together with existing titles and correct whitespace in between.
 % The person's gender is either |\vutinfth@person@male| or |\vutinfth@person@female|, depending on the input.
 % See Section~\ref{sec:impl:data:declarations} for examples.
@@ -1635,7 +1635,7 @@
 % \end{macro}
 %
 % \begin{macro}{\AddTitlePage}
-% \changes{v1.3}{2014/11/15}{Added check for subtitle existance before usage. \issue{1}}
+% \changes{v1.3}{2014/11/15}{Added check for subtitle existence before usage. \issue{1}}
 % \changes{v1.3}{2014/11/25}{Updated to support PhD School mentioning and fixed the associated vertical overflow. \issue{4}}
 %   Generates the language-dependant title page. Multiline title and subtitle are supported.
 %    \begin{macrocode}
