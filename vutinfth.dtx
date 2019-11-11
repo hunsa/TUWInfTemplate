@@ -77,7 +77,7 @@
 % \changes{v1.5}{2016/01/17}{Updated name of university to `TU Wien'.}
 % \changes{v1.6}{2016/11/12}{Enabled second advisor for dissertations.}
 % \changes{v1.8}{2019/02/13}{Removed address information.}
-% \changes{v1.9}{2019/11/11}{Changed university URL.}
+% \changes{v1.9}{2019/11/11}{Changed header graphics and unversity URL.}
 %
 % \GetFileInfo{vutinfth.dtx}
 %
@@ -1380,36 +1380,24 @@
 %
 % Initialize the header graphics. The vertical placement of the header graphics on the title pages are given by |\vutinfth@header@placement|, while the composition of the graphical elements are determined by the subsequent lengths, which constitute direct measurements of the graphics. If the header graphics are changed, these values have to be adapted.
 %    \begin{macrocode}
-\newsetlength{\vutinfth@header@placement}{-41.49731pt}%
-\newsetlength{\vutinfth@bar@width}{511bp}%
-\newsetlength{\vutinfth@bar@height}{47bp}%
-\newsetlength{\vutinfth@bar@pivot@x}{330.71bp}%
-\newsetlength{\vutinfth@bar@pivot@y}{25.31bp}%
-\newsetlength{\vutinfth@logo@height}{46bp}%
-\newsetlength{\vutinfth@logo@pivot@x}{4.57bp}%
-\newsetlength{\vutinfth@logo@pivot@y}{5.37bp}%
-\newsetlength{\vutinfth@logo@offset@height}{\vutinfth@logo@height
-  + \vutinfth@bar@pivot@y - \vutinfth@logo@pivot@y}%
-\newsetlength{\vutinfth@logo@offset@x}{-\vutinfth@bar@width
-  + \vutinfth@bar@pivot@x - \vutinfth@logo@pivot@x}%
-\newsetlength{\vutinfth@logo@offset@y}{
-  - \vutinfth@bar@pivot@y + \vutinfth@logo@pivot@y}%
+\newsetlength{\vutinfth@logo@offset@x}{10.6mm}%
+\newsetlength{\vutinfth@logo@offset@y}{22mm}%
+\newsetlength{\vutinfth@logo@width@safe}{74mm}%
+\newsetlength{\vutinfth@logo@height}{11mm}%
+\newsetlength{\vutinfth@header@width}{\paperwidth - \vutinfth@logo@offset@x - \vutinfth@logo@offset@x}%
+\newsetlength{\vutinfth@header@height}{\vutinfth@logo@height}%
+\newsetlength{\vutinfth@header@separator}{-12mm}%
 %    \end{macrocode}
 %
 % \begin{macro}{\vutinfth@header@titlepage}
+% \changes{v1.9}{2019/11/11}{Changed header graphics.}
 % Initialize header.
 %    \begin{macrocode}
 \newcommand{\vutinfth@header@titlepage}{%
-  \centering
-  \begin{minipage}[b][\vutinfth@logo@offset@height][t]{%
-      \vutinfth@bar@width
-    }%
-    \includegraphics{TU_INF_header}%
-    \hspace*{\vutinfth@logo@offset@x}%
-    \raisebox{\vutinfth@logo@offset@y}{%
-      \includegraphics[scale=1]{TU_INF_Logo_gray}%
-    }%
-  \end{minipage}%
+  \setlength{\unitlength}{1mm}%
+  \begin{picture}(74, 11)%
+    {\includegraphics[height=\vutinfth@logo@height]{Logo-schwarz.pdf}}
+  \end{picture}\hfill
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -1433,11 +1421,12 @@
 % \end{macro}
 %
 % \begin{macro}{vutinfth@pagestyle@titlepage}
+% \changes{v1.9}{2019/11/11}{Changed header graphics.}
 % Generate the title page style.
 %    \begin{macrocode}
 \makepagestyle{vutinfth@pagestyle@titlepage}%
 \makerunningwidth{vutinfth@pagestyle@titlepage}[\textwidth]{%
-  \vutinfth@bar@width}%
+  \vutinfth@header@width}%
 \makeheadposition{vutinfth@pagestyle@titlepage}{%
   center}{center}{center}{center}%
 \makeevenhead{vutinfth@pagestyle@titlepage}{}{%
@@ -1641,6 +1630,7 @@
 % \begin{macro}{\AddTitlePage}
 % \changes{v1.3}{2014/11/15}{Added check for subtitle existence before usage. \issue{1}}
 % \changes{v1.3}{2014/11/25}{Updated to support PhD School mentioning and fixed the associated vertical overflow. \issue{4}}
+% \changes{v1.9}{2019/11/11}{Changed header graphics.}
 %   Generates the language-dependant title page. Multiline title and subtitle are supported.
 %    \begin{macrocode}
 \newcommand{\AddTitlePage}{
@@ -1651,8 +1641,8 @@
 %    \begin{macrocode}
   \newgeometry{%
     left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm,
-    headsep=\vutinfth@header@placement,
-    head=2\vutinfth@logo@offset@height
+    headsep=\vutinfth@header@separator,
+    head=\vutinfth@header@height
   }%
 %    \end{macrocode}
 % Save the current page layout lengths for later restoration.
@@ -1740,6 +1730,7 @@
 % \begin{macro}{\AddStatementPage}
 % \changes{v1.3}{2014/11/25}{Updated to support multiple languages. \issue{4}}
 % \changes{v1.8}{2019/02/13}{Removed address information.}
+% \changes{v1.9}{2019/11/11}{Changed header graphics.}
 %   Generates the statement page.
 %    \begin{macrocode}
 \newcommand{\AddStatementPage}{
@@ -1748,8 +1739,8 @@
 %    \begin{macrocode}
 %^^A  \newgeometry{%
 %^^A    left=2.4cm,right=2.4cm,bottom=2.5cm,top=2cm,
-%^^A    headsep=\vutinfth@header@placement,
-%^^A    head=2\vutinfth@logo@offset@height
+%^^A    headsep=\vutinfth@header@separator,
+%^^A    head=\vutinfth@header@height
 %^^A  }%
 %    \end{macrocode}
 % Save the current page layout lengths for later restoration.
