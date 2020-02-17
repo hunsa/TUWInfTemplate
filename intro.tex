@@ -176,7 +176,7 @@ The \verb|\subcaption| command can be used to reference subfigures, such as Figu
     \subcaption{The header logo at half the text width.}
     \label{fig:intro:half width}
   \end{subfigure}
-  \caption{The header logo at different sizes.}
+  \caption[Optional caption for the figure list (often used to abbreviate long captions)]{The header logo at different sizes.} % Remove the [...] argument if the original caption should be used in the figure list.
   \label{fig:intro} % \label has to be placed AFTER \caption (or \subcaption) to produce correct cross-references.
 \end{figure}
 
