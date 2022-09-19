@@ -1,0 +1,248 @@
+%% intro.tex
+
+
+% hunsa's version of intro.tex
+% Copyright (C) 2022
+
+\chapter{Introduction to Scientific Writing}
+
+In the following, we will give you a few hints on how to write your
+thesis.
+
+\section{Formatting Guidelines}
+
+\subsection{Structure}
+Structure your thesis properly. If you happen to have only one section
+or subsection in a chapter or section, respectively, then remove the
+heading.
+
+For example, if you have
+\begin{lstlisting}
+Chapter 1 Introduction
+1.1 Contribution
+\end{lstlisting}
+then change it into
+\begin{lstlisting}
+Chapter 1 Introduction
+\end{lstlisting}
+
+Similarly, if you have
+\begin{lstlisting}
+1.1 Quicksort
+1.1.1 Randomized Quicksort
+\end{lstlisting}
+then, either you need a section with \verb|1.1.2| or remove the
+heading \verb|1.1.1|.
+
+\subsection{Capitalizing Headings}
+
+All words (except ``a'', ``the'', ``in'', \etcet) are typically
+capitalized (also conforms to guidelines of ACM and IEEE).
+
+Example:
+\begin{verbatim}
+2 My Algorithm
+2.1 Theoretical Foundation
+2.2 NP-hardness Proof
+2.3 Pseudocode of ABC Algorithm
+2.4 Implementation using Java
+2.5 Experimental Evaluation
+\end{verbatim}
+
+\section{Punctuation}
+
+\subsection{Avoid Contractions}
+
+Please do not use contractions in scientific writing, such as
+``it's'', ``can't'', ``wanna'' or  ``won't''.
+
+\subsection{Quotes}
+
+Quoting seems to be very hard for some. When you want to refer to
+someone else, you may use ``quotes''. But the quotes need to done
+correctly, \ie, you start the quoted text with \verb|``| (two
+backticks) and mark the end of the quote with \verb|''| (two
+apostrophes). This ensures that the quotes are ``always set
+correctly.''
+
+\subsection{Footnotes}
+
+You may want to use footnotes at times. However, if you do so, and
+they happen to be at the end of the sentence, then put the period
+before the footnote.\footnote{This is after the period.}
+
+\subsection{Units}
+
+The package \verb|siunitx| helps you with writing numbers and units.
+
+For example, you may want to measure for \SI{100}{\micro\second} and
+create file with \SI{10}{\gibi\byte} or \SI{10}{\giga\byte}, which
+ever base you prefer.
+
+\section{Floating Environments}
+
+We usually try to align floats on top of the page, \eg,
+\verb|{figure}[t]| or \verb|{table}[t]|. Sometimes it may be necessary
+to modify this guidelines, \eg, on the first page, and then we can use
+\verb|[h]|.
+
+\subsection{Figures}
+
+Images can be added with the \verb|\includegraphics| command as shown
+in Figure~\ref{fig:intro}.  With \verb|\subcaption|, you can reference
+subfigures, such as Figures~\ref{fig:intro:full width}
+and~\ref{fig:intro:half width}.
+%
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.45\columnwidth}
+    \centering
+    \includegraphics[width=\textwidth]{Logo-schwarz.pdf}
+    \subcaption{The header logo at text width.}
+    \label{fig:intro:full width}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.45\columnwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Logo-schwarz.pdf}
+    \subcaption{The header logo at half the text width.}
+    \label{fig:intro:half width}
+  \end{subfigure}
+  \caption[Short caption for TOC]{The header logo at different sizes.} 
+  \label{fig:intro} 
+\end{figure}
+%
+
+Notice that the caption is below the figure. Please try avoiding pixel
+graphics (jpeg, png) whenever possible.
+
+\subsection{Tables}
+
+\begin{table}[t]
+  \centering
+  \caption{Captions of tables are printed above.}
+  \label{tab:example1}
+  \begin{tabular}{ll}
+    \toprule
+    Thesis  & Template    \\
+    \midrule
+    Bachelor & \verb|example_hunsa.tex| \\
+    Master  & \verb|example_hunsa.tex| \\
+    PhD & \verb|example.tex| \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\tab~\ref{tab:example1} shows one example of inserting a table. Notice
+that we print its caption above the table.
+
+
+\subsection{Mathematical Expressions}
+
+You can write mathematical expressions inline, such as
+$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$.
+You may also write them in a block.
+However, if you write an equation like the following one
+\begin{equation*}
+x = \sum_{i=1}^{n} i \quad ,
+\end{equation*}
+make sure that it is part of a sentence.
+
+You can also write an equation, which you would like to reference later.
+For example, the value of $y$ is defined as follows
+\begin{equation}
+\label{eq:ydef}
+y = \sum_{i=1}^{n} 2^i \quad .
+\end{equation}
+
+Later, we may want to reference this equation. For example, our
+definition of $y$ was given in Equation~\eqref{eq:ydef}.  Notice that
+we have used \verb|\eqref| to reference this equation.
+
+\subsection{Pseudo Codes and Listings}
+
+Pseudo codes, algorithms, and other listings should also have a
+caption above.
+
+Let us give two example of how to work with algorithms and listings.
+
+For writing algorithms, you can use the \verb|algorithmic| or
+\verb|algorithmicx| package. Of course, there are also other packages
+for achieving similar results. You may use other ones as well.
+
+\begin{algorithm}[t]
+\caption{Euclid’s algorithm}\label{alg:euclid}
+\begin{algorithmic}[1]
+  \Procedure{Euclid}{$a,b$}
+  \State $r\gets a \mod b$
+  \While{$r\not=0$}
+  \State $a\gets b$
+  \State $b\gets r$
+  \State $r\gets a\bmod b$
+  \EndWhile\label{euclidendwhile}
+  \State \textbf{return} $b$
+  \EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\alg~\ref{alg:euclid} shows an example algorithm, which was taken
+directly from the documentation of the \verb|algorithmicx| package.
+
+If you want to reference a particular line of the algorithm, you can
+do that, but use \emph{Line}, \eg, in Line~\ref{euclidendwhile}, the
+while loop is closed.
+
+\begin{lstlisting}[language=C++,
+  caption={Example of OpenMP program.},
+  float=h,
+  numbers=left]
+#include <omp.h>
+
+main ()  {
+
+int nthreads, tid;
+
+/* Fork a team of threads with each thread having a private tid variable */
+#pragma omp parallel private(tid)
+  {
+
+  /* Obtain and print thread id */
+  tid = omp_get_thread_num();
+  printf("Hello World from thread = %d\n", tid);
+
+  /* Only master thread does this */
+  if (tid == 0) 
+    {
+    nthreads = omp_get_num_threads();
+    printf("Number of threads = %d\n", nthreads);
+    }
+
+  }  /* All threads join master thread and terminate */
+
+}
+\end{lstlisting}
+
+\section{Bibliography}
+
+The bibliography is an important source of information for the reader.
+Please ensure that each entry in the bibliography is completely
+filled, \eg, each entry has a year and each conference paper has a
+title of the proceedings it was published in.
+
+Significant work on the decision problem has been done
+before~\cite{Turing1936}.  Make sure that proper names and
+abbreviations are surrounded with curly braces in your bib file, e.g.,
+\verb|{MPI}| or \verb|{CUDA}|.
+
+Turing~\cite{Turing1936} has done considerable work on the Entscheidungsproblem.
+
+Terpstra~\etal~\cite{papi} showed how performance data can be collected with PAPI.
+
+It could also happen that you will not need \etal, especially if there
+are only two authors. For example, in 1972, Coffmann and
+Graham~\cite{CoffmanG72} presented an optimal scheduling algorithm for
+a system with two processors.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "example_hunsa"
+%%% End:
